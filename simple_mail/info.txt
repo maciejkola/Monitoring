@@ -1,0 +1,19 @@
+Simple way of using nrpe checks with mail.
+
+
+
+Edit following lines:
+---------------------
+
+MAILSERVER      - your SMTP server (for gmail use: smtp.gmail.com)
+MAILSERVER_PORT - your SMTP server port (for gmail use: 587)  
+LOGIN           - your SMTP login (for gmail use xxxx without @gmail.com)
+PASSWORD        - your SMTP password
+FROM            - source mail address (for gmail use xxxxx@gmail.com)
+RECIPIENTS      - destination mail address
+
+
+script has two options:
+-----------------------
+--printonly   - run all checks and print results on the console (in html format) without sending anything. This is for debugging purposes.
+--sendonly    - run all checks and send result to the RECIPIENTS without printing anything on the console
