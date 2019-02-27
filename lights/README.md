@@ -8,4 +8,4 @@ Box inside:
 ![alt text](https://github.com/maciejkola/Monitoring/blob/master/lights/box_inside.jpg)
 
 Scheme:
-![alt text](https://github.com/maciejkola/Monitoring/blob/master/lights/scheme.jpg)
+![alt text](https://github.com/maciejkola/Monitoring/blob/master/lights/scheme.png)
