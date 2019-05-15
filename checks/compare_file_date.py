@@ -11,10 +11,10 @@ from datetime import datetime, timedelta
 # exit 2 - CRITICAL
 # exit 3 - UNKNOWN
 
-def check(arguments):
+def check(PATH, DAYS):
     # sanitaze user input:
-    PATH = arguments[0]
-    DAYS = arguments[1]
+    #PATH = arguments[0]
+    #DAYS = arguments[1]
 
     # some sanity checks:
 
@@ -42,7 +42,7 @@ def check(arguments):
 
     elif FILETIME > OLDER_THAN:
         print("OK - file %s has less than %s days - backup works OK" % (PATH, DAYS))
-        sys.exit(1)
+        sys.exit(0)
     else:
         print("UNKNOWN - error checking age of file %s !" % (PATH))
         sys.exit(3)
@@ -53,12 +53,13 @@ def check(arguments):
 parser=argparse.ArgumentParser(
             description='''Check if date of file creation is older than given number of days ''',
                 epilog="""Designed by mkola for Icinga 2 monitoring.""")
-parser.add_argument('--check', metavar='VAR', type=str, nargs=2, help='check if path is older than X')
+parser.add_argument('--path', type=str, help='Path to file')
+parser.add_argument('--days', type=str, help='Age of file: not older than this value')
 args=parser.parse_args()
 
 if not len(sys.argv) > 1:
     parser.print_help(sys.stderr)
     sys.exit(3)
 
-if args.check:
-    check(args.check)
+if args.path and args.days:
+    check(args.path, args.days)
